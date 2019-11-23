@@ -4,6 +4,10 @@ import router from './router'
 
 import 'devicons/css/devicons.css'
 import 'font-awesome/css/font-awesome.css'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+
+Vue.use(Buefy)
 
 Vue.config.productionTip = false
 
