@@ -5,7 +5,9 @@
         <router-link to="/">
           <span class="d-block d-lg-none">Jake Hayes</span>
           <span class="d-none d-lg-block">
-            <b-img id="main-img" v-bind="mainProps" rounded="circle" alt="" src="@/assets/main.jpg"></b-img>
+            <figure class="image is-128x128">
+              <img id="main-img" class="is-rounded" src="@/assets/main.jpg">
+            </figure>
           </span>
         </router-link>
       </b-navbar>
@@ -26,35 +28,37 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
 
-#side-nav {
-  text-align: center;
-  position: fixed;
-  top: 0;
-  left:0;
-  display: flex;
-  flex-direction: column;
-  width: 17rem;
-  height: 100vh;
-}
+// Set your colors
+$primary: #8c67ef;
+$primary-invert: findColorInvert($primary);
+$twitter: #4099FF;
+$twitter-invert: findColorInvert($twitter);
 
-.bg-primary {
-  background-color: #D26363 !important;
-}
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: (
+    "white": ($white, $black),
+    "black": ($black, $white),
+    "light": ($light, $light-invert),
+    "dark": ($dark, $dark-invert),
+    "primary": ($primary, $primary-invert),
+    "info": ($info, $info-invert),
+    "success": ($success, $success-invert),
+    "warning": ($warning, $warning-invert),
+    "danger": ($danger, $danger-invert),
+    "twitter": ($twitter, $twitter-invert)
+);
 
-.fixed-top {
-  position: fixed;
-  top: 0;
-  right:0;
-  left: 0;
-  z-index: 1030;
-}
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
 
-#main-img {
-  max-width: 10rem;
-  max-height: 10rem;
-  border: .5rem solid rgba(255,255,255,.2)
-}
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
 
 </style>
